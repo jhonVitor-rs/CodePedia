@@ -1,4 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
@@ -8,12 +7,15 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import styles from './styles/app.css';
+import type { ReactNode } from "react";
+import AppProvider from "./context/AppContext";
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: styles }]
+}
 
-export default function App() {
+function Document({children}: {children: ReactNode}) {
   return (
     <html lang="en">
       <head>
@@ -22,8 +24,14 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body
+        className="min-h-screen bg-gradient-to-br from-gray-800 via-primary to-foreground relative bg-no-repeat overflow-hidden"
+      >
+        <AppProvider>
+          <main className="absolute top-0 right-0 bottom-0 left-0 flex flex-col items-center overflow-auto">
+            {children}
+          </main>
+        </AppProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
@@ -31,3 +39,26 @@ export default function App() {
     </html>
   );
 }
+
+export default function App(){
+  return (
+    <Document>
+      <Outlet/>
+    </Document>
+  )
+}
+
+// export function ErrorBoundary({error}: {error: Error}) {
+//   return (
+//     <div
+//       className="min-h-screen flex flex-col relative items-center bg-gradient-to-br from-gray-800 via-primary to-foreground"
+//     >
+//       <div className="min-w-full flex flex-col gap-2">
+//         <div className="bg-white/70 shadow-lg w-full max-w-5xl mx-auto flex flex-col p-4 rounded-xl min-h-[90vh] relative">
+//           <h1>App Error</h1>
+//           <pre>{error.message}</pre>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

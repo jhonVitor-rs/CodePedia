@@ -1,0 +1,18 @@
+export const languagesForPost = [
+  'JavaScript',
+  'Python',
+  'Java',
+  'C#',
+  'Ruby',
+  'PHP',
+  'TypeScript',
+  'Swift',
+  'Kotlin',
+  'Go',
+  'C++',
+  'HTML',
+  'CSS',
+  'Rust',
+  'Shell',
+  'Other',
+];
