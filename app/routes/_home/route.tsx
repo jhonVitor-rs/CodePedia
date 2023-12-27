@@ -57,7 +57,7 @@ export default function() {
                   </NavigationMenuList>
                 </NavigationMenu>
               ) : (
-                <Link to={'/signIn'}>
+                <Link to={'/sign-in'}>
                   <Button>SignIn</Button>
                 </Link>
               )
