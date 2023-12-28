@@ -4,15 +4,12 @@ import { createUser } from './user.server'
 import bcrypt from 'bcryptjs'
 import type { TUser } from '~/types/user.server'
 
-const sessionSecret = process.env.SESSION_SECRET
-if (!sessionSecret) {
-  throw new Error('SESSION_SECRET must be set')
-}
+const sessionSecret = ENV.SESSION_SECRET
 
 const storage = createCookieSessionStorage({
   cookie: {
     name: 'code_pedia-session',
-    secure: process.env.NODE_ENV === 'production',
+    secure: ENV.NODE_ENV === 'production',
     secrets: [sessionSecret],
     sameSite: 'lax',
     path: '/',

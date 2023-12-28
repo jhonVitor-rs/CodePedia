@@ -3,9 +3,9 @@ import type { UploadApiResponse } from "cloudinary";
 import cloudinary from "cloudinary";
 
 cloudinary.v2.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
+  cloud_name: ENV.CLOUD_NAME,
+  api_key: ENV.API_KEY,
+  api_secret: ENV.API_SECRET,
 });
 
 type CloudinaryUploadResult = UploadApiResponse;
