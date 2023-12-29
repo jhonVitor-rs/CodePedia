@@ -4,7 +4,7 @@ import { createUser } from './user.server'
 import bcrypt from 'bcryptjs'
 import type { TUser } from '~/types/user.server'
 
-const sessionSecret = ENV.SESSION_SECRET || 'session.secret'
+const sessionSecret = ENV.SESSION_SECRET
 
 const storage = createCookieSessionStorage({
   cookie: {
