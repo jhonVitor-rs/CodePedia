@@ -1,15 +1,9 @@
 import { z } from "zod";
 
-enum Environment {
-  Production = 'production',
-  Development = 'development',
-  Test = 'test'
-}
-
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   SESSION_SECRET: z.string(),
-  NODE_ENV: z.nativeEnum(Environment),
+  NODE_ENV: z.string(),
   CLOUD_NAME: z.string(),
   API_KEY: z.string(),
   API_SECRET: z.string(),
