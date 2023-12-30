@@ -42,7 +42,7 @@ export default function Profile() {
       </Button>
       <div className="bg-white/70 shadow-lg flex flex-col gap-4 w-full max-w-5xl my-6 mx-auto p-4 rounded-xl min-h-[90vh] relative">
         <Outlet context={{ userName: user.userName, firstName: user.firstName, lastName: user.lastName, email: user.email }} />
-        <Modal isOpen={openModal} onChange={handleCloseModal}>
+        <Modal isOpen={openModal} onChange={handleCloseModal} className="my-auto">
           <New/>
         </Modal>
         <div className="flex w-full justify-around gap-3">
@@ -84,7 +84,7 @@ export default function Profile() {
               </Link>
             </div>
             <div className="flex items-center justify-center w-full gap-3">
-              <img src="logo.png" alt="" width={50} className="rounded-md"/>
+              <img src="logo.png" alt="" width={50} className="rounded-md cursor-pointer" onClick={() => navigate('/')}/>
               <h1 className="text-3xl font-black">CodePedia</h1>
             </div>
             <div className="w-full py-2 px-3 rounded-full bg-background/50 text-xl">{user.userName}</div>
