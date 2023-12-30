@@ -1890,8 +1890,4 @@ body {
   .md\:rounded-xl {
     border-radius: 0.75rem;
   }
-
-  .md\:rounded {
-    border-radius: 0.25rem;
-  }
 }
